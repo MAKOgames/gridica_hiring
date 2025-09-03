@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-Recruitment — Redefined</title>
+    <meta name="description" content="Мы не просто закрываем вакансии. Мы находим IT-лидеров и Senior-инженеров, которые становятся ядром вашего бизнеса.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-gray-300 font-sans antialiased">
+
+    <div id="app-container">
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-lg">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="text-xl font-bold text-white">
+                    Hiring<span class="text-purple-500">.</span>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#cases" class="hover:text-white transition">Кейсы</a>
+                    <a href="#pricing" class="hover:text-white transition">Стоимость</a>
+                    <a href="#cta" class="bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-gray-200 transition">Оставить заявку</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="h-screen flex items-center justify-center text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+                <div class="relative z-10 px-6">
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                        IT-рекрутинг, переосмысленный
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+                        Мы не просто закрываем вакансии. Мы находим IT-лидеров и Senior-инженеров, которые становятся ядром вашего бизнеса.
+                    </p>
+                    <a href="#cta" class="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition text-lg">
+                        Начать подбор
+                    </a>
+                </div>
+            </section>
+
+            <!-- Cases Section -->
+            <section id="cases" class="py-24">
+                 <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold text-white text-center mb-16 fade-in-up">Усиливаем команды, которые меняют мир</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Case 1 -->
+                        <div class="case-card border border-gray-800 p-8 rounded-2xl fade-in-up">
+                            <h3 class="text-2xl font-bold text-white mb-3">CTO для финтех-стартапа</h3>
+                            <p class="text-gray-400">Нашли технического директора с опытом в high-load и управлении командой 20+, который выстроил новую архитектуру и вывел продукт на новый уровень.</p>
+                        </div>
+                        <!-- Case 2 -->
+                        <div class="case-card border border-gray-800 p-8 rounded-2xl fade-in-up" style="transition-delay: 0.2s;">
+                            <h3 class="text-2xl font-bold text-white mb-3">Команда Golang-разработчиков</h3>
+                            <p class="text-gray-400">Собрали с нуля команду из 3-х Senior Go-разработчиков для E-commerce проекта, что позволило запустить MVP в установленный срок.</p>
+                        </div>
+                        <!-- Case 3 -->
+                        <div class="case-card border border-gray-800 p-8 rounded-2xl fade-in-up" style="transition-delay: 0.4s;">
+                            <h3 class="text-2xl font-bold text-white mb-3">Замена тимлида в MedTech</h3>
+                            <p class="text-gray-400">Нашли и вывели на работу нового тимлида за 14 дней, предотвратив простой в ключевой команде разработки.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing" class="py-24">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold text-white mb-4 fade-in-up">Прозрачная стоимость. Оплата за результат.</h2>
+                    <p class="text-lg text-gray-400 mb-12 fade-in-up" style="transition-delay: 0.2s;">Стоимость зависит только от уровня специалиста. Никаких скрытых комиссий.</p>
+                    <div id="calculator-root" class="max-w-2xl mx-auto fade-in-up" style="transition-delay: 0.4s;">
+                        <!-- Калькулятор будет здесь -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section id="cta" class="py-24">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold text-white mb-6 fade-in-up">Готовы найти следующего ключевого игрока?</h2>
+                    <p class="text-lg text-gray-400 max-w-xl mx-auto mb-10 fade-in-up" style="transition-delay: 0.2s;">Оставьте заявку, и мы свяжемся с вами в течение часа для обсуждения деталей.</p>
+                    <form id="contact-form" class="max-w-xl mx-auto fade-in-up" style="transition-delay: 0.4s;">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" name="name" placeholder="Ваше имя" required class="p-3 rounded-lg bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white">
+                            <input type="email" name="email" placeholder="Email или телефон" required class="p-3 rounded-lg bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white">
+                        </div>
+                        <input type="text" name="company" placeholder="Название компании" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white">
+                        <button type="submit" class="w-full bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition text-lg">Отправить заявку</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-8 border-t border-gray-800">
+            <div class="container mx-auto px-6 text-center text-gray-500">
+                <p>&copy; 2025 Hiring. Redefined.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
