@@ -6,49 +6,12 @@
     <title>IT-Recruitment — Redefined</title>
     <meta name="description" content="Мы не просто закрываем вакансии. Мы находим IT-лидеров и Senior-инженеров, которые становятся ядром вашего бизнеса.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .bg-grid-pattern {
-            background-image: 
-                linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .case-card {
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(0, 0, 0, 0.3));
-        }
-        .case-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 92, 246, 0.5);
-        }
-        .success-message {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(0, 0, 0, 0.3));
-            border: 1px solid rgba(34, 197, 94, 0.5);
-        }
-        .error-message {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(0, 0, 0, 0.3));
-            border: 1px solid rgba(239, 68, 68, 0.5);
-        }
-        .loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-    </style>
 </head>
-<body class="bg-black text-gray-300 antialiased">
+<body class="bg-black text-gray-300 font-sans antialiased">
 
     <div id="app-container">
         <!-- Header -->
@@ -112,26 +75,8 @@
                 <div class="container mx-auto px-6 text-center">
                     <h2 class="text-4xl font-bold text-white mb-4 fade-in-up">Прозрачная стоимость. Оплата за результат.</h2>
                     <p class="text-lg text-gray-400 mb-12 fade-in-up" style="transition-delay: 0.2s;">Стоимость зависит только от уровня специалиста. Никаких скрытых комиссий.</p>
-                    <div class="max-w-2xl mx-auto fade-in-up bg-gray-900 p-8 rounded-2xl border border-gray-700" style="transition-delay: 0.4s;">
-                        <h3 class="text-2xl font-bold text-white mb-6">Калькулятор стоимости</h3>
-                        <div class="grid md:grid-cols-2 gap-6 text-left">
-                            <div class="p-4 bg-gray-800 rounded-lg border border-gray-600">
-                                <h4 class="text-lg font-semibold text-purple-400 mb-2">Middle специалисты</h4>
-                                <p class="text-gray-300">от 100,000 ₽</p>
-                            </div>
-                            <div class="p-4 bg-gray-800 rounded-lg border border-gray-600">
-                                <h4 class="text-lg font-semibold text-purple-400 mb-2">Senior специалисты</h4>
-                                <p class="text-gray-300">от 200,000 ₽</p>
-                            </div>
-                            <div class="p-4 bg-gray-800 rounded-lg border border-gray-600">
-                                <h4 class="text-lg font-semibold text-purple-400 mb-2">Team Lead</h4>
-                                <p class="text-gray-300">от 300,000 ₽</p>
-                            </div>
-                            <div class="p-4 bg-gray-800 rounded-lg border border-gray-600">
-                                <h4 class="text-lg font-semibold text-purple-400 mb-2">CTO / VP Engineering</h4>
-                                <p class="text-gray-300">от 500,000 ₽</p>
-                            </div>
-                        </div>
+                    <div id="calculator-root" class="max-w-2xl mx-auto fade-in-up" style="transition-delay: 0.4s;">
+                        <!-- Калькулятор будет здесь -->
                     </div>
                 </div>
             </section>
@@ -142,7 +87,7 @@
                     <h2 class="text-4xl font-bold text-white mb-6 fade-in-up">Готовы найти следующего ключевого игрока?</h2>
                     <p class="text-lg text-gray-400 max-w-xl mx-auto mb-10 fade-in-up" style="transition-delay: 0.2s;">Оставьте заявку, и мы свяжемся с вами в течение часа для обсуждения деталей.</p>
                     
-                    <div id="form-messages" class="max-w-xl mx-auto mb-6"></div>
+                    <!-- Контейнер для сообщений добавится автоматически через JavaScript -->
                     
                     <form id="contact-form" class="max-w-xl mx-auto fade-in-up" style="transition-delay: 0.4s;">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -152,7 +97,7 @@
                                    required 
                                    class="p-3 rounded-lg bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400">
                             <input type="text" 
-                                   name="contact" 
+                                   name="email" 
                                    placeholder="Email или телефон" 
                                    required 
                                    class="p-3 rounded-lg bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400">
@@ -161,16 +106,9 @@
                                name="company" 
                                placeholder="Название компании" 
                                class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400">
-                        <textarea name="message" 
-                                  placeholder="Расскажите о вакансии (необязательно)" 
-                                  rows="3" 
-                                  class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400 resize-none"></textarea>
                         <button type="submit" 
-                                class="w-full bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition text-lg flex items-center justify-center">
-                            <span class="submit-text">Отправить заявку</span>
-                            <div class="loading-spinner hidden ml-2">
-                                <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                            </div>
+                                class="w-full bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition text-lg">
+                            Отправить заявку
                         </button>
                     </form>
                 </div>
@@ -184,138 +122,6 @@
         </footer>
     </div>
 
-    <script>
-        // Конфигурация Telegram бота
-        const TELEGRAM_CONFIG = {
-            botToken: 'YOUR_BOT_TOKEN_HERE', // Замените на ваш токен бота
-            chatId: 'YOUR_CHAT_ID_HERE'      // Замените на ваш chat_id
-        };
-
-        // Функция для отправки сообщения в Telegram
-        async function sendToTelegram(formData) {
-            const message = `
-🔥 Новая заявка с сайта!
-
-👤 Имя: ${formData.name}
-📞 Контакт: ${formData.contact}
-🏢 Компания: ${formData.company || 'Не указана'}
-💬 Сообщение: ${formData.message || 'Не указано'}
-
-⏰ Время: ${new Date().toLocaleString('ru-RU')}
-            `.trim();
-
-            const url = `https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`;
-            
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CONFIG.chatId,
-                    text: message,
-                    parse_mode: 'HTML'
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('Ошибка отправки в Telegram');
-            }
-
-            return response.json();
-        }
-
-        // Функция для показа сообщений
-        function showMessage(text, type = 'success') {
-            const messagesContainer = document.getElementById('form-messages');
-            messagesContainer.innerHTML = `
-                <div class="p-4 rounded-lg ${type === 'success' ? 'success-message text-green-300' : 'error-message text-red-300'} mb-4">
-                    ${text}
-                </div>
-            `;
-            
-            // Автоматически скрыть сообщение через 5 секунд
-            setTimeout(() => {
-                messagesContainer.innerHTML = '';
-            }, 5000);
-        }
-
-        // Обработка формы
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const submitButton = form.querySelector('button[type="submit"]');
-            const submitText = submitButton.querySelector('.submit-text');
-            const loadingSpinner = submitButton.querySelector('.loading-spinner');
-            
-            // Показать состояние загрузки
-            submitButton.classList.add('loading');
-            submitText.textContent = 'Отправляем...';
-            loadingSpinner.classList.remove('hidden');
-            
-            try {
-                // Собрать данные формы
-                const formData = {
-                    name: form.name.value.trim(),
-                    contact: form.contact.value.trim(),
-                    company: form.company.value.trim(),
-                    message: form.message.value.trim()
-                };
-
-                // Отправить в Telegram
-                await sendToTelegram(formData);
-                
-                // Показать сообщение об успехе
-                showMessage('✅ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
-                
-                // Очистить форму
-                form.reset();
-                
-            } catch (error) {
-                console.error('Ошибка отправки:', error);
-                showMessage('❌ Произошла ошибка при отправке. Попробуйте еще раз или свяжитесь с нами напрямую.', 'error');
-            } finally {
-                // Восстановить состояние кнопки
-                submitButton.classList.remove('loading');
-                submitText.textContent = 'Отправить заявку';
-                loadingSpinner.classList.add('hidden');
-            }
-        });
-
-        // Анимации при скролле
-        function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in-up');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        // Инициализация
-        document.addEventListener('DOMContentLoaded', function() {
-            handleScrollAnimations();
-        });
-
-        window.addEventListener('scroll', handleScrollAnimations);
-
-        // Плавная прокрутка для якорных ссылок
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
