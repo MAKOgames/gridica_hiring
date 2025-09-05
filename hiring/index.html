@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="bg-black text-gray-300 font-sans antialiased">
 
@@ -106,8 +109,20 @@
                                name="company" 
                                placeholder="Название компании" 
                                class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400">
+                        <textarea name="message" 
+                                  placeholder="Расскажите о вакансии (необязательно)" 
+                                  rows="3" 
+                                  class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400 resize-none"></textarea>
+                        
+                        <!-- Cloudflare Turnstile CAPTCHA -->
+                        <div class="cf-turnstile mb-4" 
+                             data-sitekey="0x4AAAAAAAABsZlLlvcx1xER3sV" 
+                             data-theme="dark"
+                             data-size="normal">
+                        </div>
+                        
                         <button type="submit" 
-                                class="w-full bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition text-lg">
+                                class="w-full bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition text-lg disabled:opacity-50 disabled:cursor-not-allowed">
                             Отправить заявку
                         </button>
                     </form>
